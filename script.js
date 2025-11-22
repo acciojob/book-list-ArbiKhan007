@@ -48,6 +48,22 @@ document.addEventListener('DOMContentLoaded', function() {
 		rowIsbn.textContent=isbnInput.value;
 		newRow.append(rowTitle, rowAuthor, rowIsbn, rowClear);
 		tableBody.append(newRow);
+
+		//
+		rowClear.addEventListener("click", (e)=>{
+			e.preventDefault();
+
+		    // Get the button that was clicked
+		    const btn = e.target;
+		
+		    // Find the row (tr) containing this button
+		    const row = btn.closest("tr");
+		
+		    // Remove the row
+		    if (row) {
+		        row.remove();
+		    }
+		});
 	});
 	
 	const resultTable=document.createElement("table");
