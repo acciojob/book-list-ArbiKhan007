@@ -41,18 +41,27 @@ addBookBtn.addEventListener("click", ()=>{
 	rowAuthor.textContent=authorInput.value;
 	rowIsbn.textContent=isbnInput.value;
 	newRow.append(rowTitle, rowAuthor, rowIsbn);
+	resultTable.append(newRow);
 });
 
 const resultTable=document.createElement("table");
 resultTable.classList.add("table", "table-striped");
 
+const tableHead=document.createElement("thead");
+const headRow=document.createElement("tr");
 const resultTitle=document.createElement("th");
 resultTitle.textContent="Title";
 const resultAuthor=document.createElement("th");
 resultAuthor.textContent="Author";
 const resultIsbn=document.createElement("th");
 resultIsbn.textContent="ISBN#";
-resultTable.append(resultTitle, resultAuthor, resultIsbn)
+
+const tableBody=document.createElement("tbody");
+tableBody.id="book-list";
+
+headRow.append(resultTitle, resultAuthor, resultIsbn);
+tableHead.append(headRow);
+resultTable.append(tableHead, tableBody);
 
 container.append(mainHeading, titleLabel, titleInput, authorLabel,
 				authorInput, isbnLabel, isbnInput, addBookBtn, resultTable);
