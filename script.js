@@ -31,6 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	addBookBtn.textContent="Add Book";
 	addBookBtn.classList.add("btn");
 	addBookBtn.id="submit";
+
+	const tableBody=document.createElement("tbody");
+	tableBody.id="book-list";
 	
 	addBookBtn.addEventListener("click", ()=>{
 		const newRow=document.createElement("tr");
@@ -41,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		rowAuthor.textContent=authorInput.value;
 		rowIsbn.textContent=isbnInput.value;
 		newRow.append(rowTitle, rowAuthor, rowIsbn);
-		resultTable.append(newRow);
+		tableBody.append(newRow);
 	});
 	
 	const resultTable=document.createElement("table");
@@ -55,9 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	resultAuthor.textContent="Author";
 	const resultIsbn=document.createElement("th");
 	resultIsbn.textContent="ISBN#";
-	
-	const tableBody=document.createElement("tbody");
-	tableBody.id="book-list";
 	
 	headRow.append(resultTitle, resultAuthor, resultIsbn);
 	tableHead.append(headRow);
