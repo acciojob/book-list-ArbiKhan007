@@ -40,13 +40,15 @@ document.addEventListener('DOMContentLoaded', function() {
 		const rowTitle=document.createElement("td");
 		const rowAuthor=document.createElement("td");
 		const rowIsbn=document.createElement("td");
+		const rowDelete=document.createElement("td");
 		const rowClear=document.createElement("button");
+		rowDelete.append(rowClear);
 		rowClear.classList.add("delete");
 		rowClear.textContent="x";
 		rowTitle.textContent=titleInput.value;
 		rowAuthor.textContent=authorInput.value;
 		rowIsbn.textContent=isbnInput.value;
-		newRow.append(rowTitle, rowAuthor, rowIsbn, rowClear);
+		newRow.append(rowTitle, rowAuthor, rowIsbn, rowDelete);
 		tableBody.append(newRow);
 
 		//
